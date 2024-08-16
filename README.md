@@ -13,27 +13,7 @@ composer require leuverink/inject-assets
 
 ## Usage
 
-After installing, you need to bind a concrete implementation to the AssetInjector interface in your packages Service Provider.
-
-```php
-namespace YourPackage;
-
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Leuverink\InjectAssets\Contracts\AssetInjector;
-
-class ServiceProvider extends BaseServiceProvider
-{
-    public function register()
-    {
-        $this->app->bind(
-            AssetInjector::class,
-            fn() => new \YourPackage\InjectAssets
-        );
-    }
-}
-```
-
-And ofcource implement that class.
+After installing, you'll need to create a class that implements the `AssetInjector` interface.
 
 ```php
 namespace YourPackage;
@@ -62,7 +42,29 @@ class InjectAssets implements AssetInjector
 
 This serves as an example. You may return any string you like from the `inject` method.
 
-## Configuration
+Afterward you need to bind a concrete implementation to the AssetInjector interface in your packages Service Provider.
+
+```php
+namespace YourPackage;
+
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Leuverink\InjectAssets\Contracts\AssetInjector;
+
+class ServiceProvider extends BaseServiceProvider
+{
+    public function register()
+    {
+        $this->app->bind(
+            AssetInjector::class,
+            fn() => new \YourPackage\InjectAssets
+        );
+    }
+}
+```
+
+That's it. The assets will be included in every full-page response (not in partial html responses).
+
+When the response contains a head tag your assets will be injected in there. When there is no head tag they will be injected before the end of the closing html tag.
 
 ## Development
 
