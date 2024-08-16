@@ -1,7 +1,7 @@
 # Auto inject package assets
 
-[![codestyle](https://github.com/gwleuverink/inject-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-assets/actions/workflows/codestyle.yml)
-[![tests](https://github.com/gwleuverink/inject-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-assets/actions/workflows/tests.yml)
+[![codestyle](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml)
+[![tests](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml)
 
 No need to ask your package users to manually include any scripts or styles. Automatically inject them in the response instead 🚀
 
