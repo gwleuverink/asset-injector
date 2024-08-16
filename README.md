@@ -24,8 +24,16 @@ use Leuverink\InjectAssets\Contracts\AssetInjector;
 class InjectAssets implements AssetInjector
 {
     // Used to determine if assets were already injected in the response
-    public function identifier() {
+    public function identifier(): string
+    {
         return 'MY_PACKAGE';
+    }
+
+    // You can opt in to asset injection by implementing your own checks.
+    // For example if a package user can control this via config file.
+    public function enabled(): bool
+    {
+        return true;
     }
 
     // Will inject return value in head tag or befor html close if no head is present
