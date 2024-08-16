@@ -7,12 +7,14 @@ use Illuminate\Foundation\Http\Events\RequestHandled;
 
 class InjectAssets
 {
+    public function __construct(
+        protected AssetInjector $injector
+    ) {}
+
     /** Injects assets inside every full-page response */
     public function __invoke(RequestHandled $handled)
     {
-        $injector = $this->resolveInjector();
-
-        if (! $injector->enabled()) {
+        if (! $this->injector->enabled()) {
             return;
         }
 
@@ -28,7 +30,7 @@ class InjectAssets
         }
 
         // Skip if core was included before
-        if (str_contains($html, '<!--[{$injector->identifier()} ASSETS]-->')) {
+        if (str_contains($html, '<!--[{$this->injector->identifier()} ASSETS]-->')) {
             return;
         }
 
@@ -37,18 +39,13 @@ class InjectAssets
 
         $handled->response->setContent(
             $this->injectAssets($html, <<< HTML
-            <!--[{$injector->identifier()} ASSETS]-->
-            {$injector->inject()}
-            <!--[END{$injector->identifier()}]-->
+            <!--[{$this->injector->identifier()} ASSETS]-->
+            {$this->injector->inject()}
+            <!--[END{$this->injector->identifier()}]-->
             HTML)
         );
 
         $handled->response->original = $originalContent;
-    }
-
-    protected function resolveInjector(): AssetInjector
-    {
-        return resolve(AssetInjector::class);
     }
 
     /** Injects assets into given html string (taken from Livewire's injection mechanism) */
