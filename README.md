@@ -24,7 +24,9 @@ use Leuverink\InjectAssets\Contracts\AssetInjector;
 class InjectAssets implements AssetInjector
 {
     // Used to determine if assets were already injected in the response
-    public string $identifier = 'MY_PACKAGE';
+    public function identifier() {
+        return 'MY_PACKAGE';
+    }
 
     // Will inject return value in head tag or befor html close if no head is present
     public function inject(): string
