@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use Leuverink\InjectAssets\Contracts\AssetInjector;
+use Leuverink\AssetInjector\Contracts\AssetInjector;
 
 class Implement implements AssetInjector
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Leuverink\InjectAssets;
+namespace Leuverink\AssetInjector;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Http\Events\RequestHandled;

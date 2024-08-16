@@ -1,11 +1,11 @@
 {
-    "name": "leuverink/inject-assets",
+    "name": "leuverink/asset-injector",
     "description": "Automatically inject your package assets onto the page",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Leuverink\\InjectAssets\\": "src/",
+            "Leuverink\\AssetInjector\\": "src/",
             "Tests\\": "tests/"
         }
     },
@@ -34,7 +34,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Leuverink\\InjectAssets\\ServiceProvider"
+                "Leuverink\\AssetInjector\\ServiceProvider"
             ]
         }
     },

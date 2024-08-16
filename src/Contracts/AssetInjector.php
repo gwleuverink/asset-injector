@@ -1,6 +1,6 @@
 <?php
 
-namespace Leuverink\InjectAssets\Contracts;
+namespace Leuverink\AssetInjector\Contracts;
 
 interface AssetInjector
 {

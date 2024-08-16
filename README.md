@@ -3,14 +3,14 @@
 [![codestyle](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml)
 [![tests](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml)
 
-Simplify your Laravel package development by automatically injecting assets into web responses. No manual inclusion required for your package users! 🚀
+Simplify your Laravel package development by automatically injecting js & css assets into web responses. No manual inclusion required for your package users! 🚀
 
 ## Installation
 
 Install the package via Composer:
 
 ```bash
-composer require leuverink/inject-assets
+composer require leuverink/asset-injector
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ composer require leuverink/inject-assets
 ```php
 namespace YourPackage;
 
-use Leuverink\InjectAssets\Contracts\AssetInjector;
+use Leuverink\AssetInjector\Contracts\AssetInjector;
 
 
 class InjectAssets implements AssetInjector
@@ -58,7 +58,7 @@ class InjectAssets implements AssetInjector
 namespace YourPackage;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Leuverink\InjectAssets\Contracts\AssetInjector;
+use Leuverink\AssetInjector\Contracts\AssetInjector;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -66,7 +66,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->app->bind(
             AssetInjector::class,
-            fn() => new \YourPackage\InjectAssets
+            fn() => new \YourPackage\AssetInjector
         );
     }
 }

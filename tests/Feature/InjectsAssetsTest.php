@@ -1,6 +1,6 @@
 <?php
 
-use Leuverink\InjectAssets\Contracts\AssetInjector;
+use Leuverink\AssetInjector\Contracts\AssetInjector;
 
 it('injects assets into head tag', function () {
     Route::get('test-inject-in-response', fn () => '<html><head></head></html>');

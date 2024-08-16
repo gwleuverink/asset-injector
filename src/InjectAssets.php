@@ -1,8 +1,8 @@
 <?php
 
-namespace Leuverink\InjectAssets;
+namespace Leuverink\AssetInjector;
 
-use Leuverink\InjectAssets\Contracts\AssetInjector;
+use Leuverink\AssetInjector\Contracts\AssetInjector;
 use Illuminate\Foundation\Http\Events\RequestHandled;
 
 class InjectAssets

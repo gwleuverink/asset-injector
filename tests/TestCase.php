@@ -4,7 +4,7 @@ namespace Tests;
 
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Leuverink\InjectAssets\Contracts\AssetInjector;
+use Leuverink\AssetInjector\Contracts\AssetInjector;
 
 abstract class TestCase extends BaseTestCase
 {
