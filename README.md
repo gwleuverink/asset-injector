@@ -1,11 +1,13 @@
-# Auto inject package assets
+# Auto Inject Package Assets
 
 [![codestyle](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml)
 [![tests](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml)
 
-No need to ask your package users to manually include any scripts or styles. Automatically inject them in the response instead 🚀
+Simplify your Laravel package development by automatically injecting assets into web responses. No manual inclusion required for your package users! 🚀
 
 ## Installation
+
+Install the package via Composer:
 
 ```bash
 composer require leuverink/inject-assets
@@ -13,7 +15,7 @@ composer require leuverink/inject-assets
 
 ## Usage
 
-After installing, you'll need to create a class that implements the `AssetInjector` interface.
+1. After installing, you'll need to create a `AssetInjector` implementation.
 
 ```php
 namespace YourPackage;
@@ -50,9 +52,7 @@ class InjectAssets implements AssetInjector
 }
 ```
 
-This serves as an example. You may return any string you like from the `inject` method.
-
-Afterward you need to bind a concrete implementation to the AssetInjector interface in your packages Service Provider.
+2. Bind the implementation in your package's Service Provider.
 
 ```php
 namespace YourPackage;
@@ -72,11 +72,17 @@ class ServiceProvider extends BaseServiceProvider
 }
 ```
 
-That's it. The assets will be included in every full-page response (not in partial html responses).
+## How It Works
 
-When the response contains a head tag your assets will be injected in there. When there is no head tag they will be injected before the end of the closing html tag.
+- Assets are automatically included in full-page responses (not partial HTML responses).
+- If a `<head>` tag is present, assets are injected there. Otherwise, they're inserted before the closing `</html>` tag.
+- The `identifier()` method helps prevent duplicate asset injection.
+- Use the `enabled()` method to implement conditional asset injection based on your package's configuration.
+- Customize the injected content by modifying the `inject()` method.
 
 ## Development
+
+Use these commands for development:
 
 ```bash
 composer lint # run all linters
@@ -87,3 +93,7 @@ composer baseline # generate static analysis baseline
 
 composer test # run test suite
 ```
+
+## License
+
+This package is open-source software licensed under the MIT license.
