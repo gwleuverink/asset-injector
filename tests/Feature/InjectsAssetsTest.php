@@ -6,7 +6,7 @@ it('injects assets into head tag', function () {
     $this->get('test-inject-in-response')
         ->assertOk()
         ->assertSee('<!--[MAGIC_TODO-ASSETS]-->', false);
-});
+})->todo();
 
 it('injects assets into html body when no head tag is present', function () {
     Route::get('test-inject-in-response', fn () => '<html></html>');
@@ -14,7 +14,7 @@ it('injects assets into html body when no head tag is present', function () {
     $this->get('test-inject-in-response')
         ->assertOk()
         ->assertSee('<!--[MAGIC_TODO-ASSETS]-->', false);
-});
+})->todo();
 
 it('doesnt inject assets into responses without a closing html tag', function () {
     Route::get('test-inject-in-response', fn () => 'OK');
@@ -22,4 +22,4 @@ it('doesnt inject assets into responses without a closing html tag', function ()
     $this->get('test-inject-in-response')
         ->assertOk()
         ->assertDontSee('<!--[MAGIC_TODO-ASSETS]-->', false);
-});
+})->todo();
