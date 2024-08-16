@@ -38,7 +38,7 @@ class InjectAssets implements AssetInjector
         return true;
     }
 
-    // Will inject return value in head tag or befor html close if no head is present
+    // Will inject return value in head tag or before html close if no head is present
     public function inject(): string
     {
         $js = file_get_contents(__DIR__ . '/../build/my-package.js');
