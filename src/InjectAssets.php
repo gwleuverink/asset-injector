@@ -49,18 +49,18 @@ class InjectAssets
     }
 
     /** Injects assets into given html string (taken from Livewire's injection mechanism) */
-    protected function injectAssets(string $html, string $core): string
+    protected function injectAssets(string $html, string $assets): string
     {
         $html = str($html);
 
         if ($html->test('/<\s*\/\s*head\s*>/i')) {
             return $html
-                ->replaceMatches('/(<\s*\\s*head\s*>)/i', '$1' . $core)
+                ->replaceMatches('/(<\s*\\s*head\s*>)/i', '$1' . $assets)
                 ->toString();
         }
 
         return $html
-            ->replaceMatches('/(<\s*html(?:\s[^>])*>)/i', '$1' . $core)
+            ->replaceMatches('/(<\s*html(?:\s[^>])*>)/i', '$1' . $assets)
             ->toString();
     }
 }
