@@ -38,7 +38,7 @@ class InjectAssets
         $originalContent = $handled->response->original;
 
         $handled->response->setContent(
-            $this->injectAssets($html, <<< HTML
+            $this->inject($html, <<< HTML
             <!--[{$this->injector->identifier()} ASSETS]-->
             {$this->injector->inject()}
             <!--[END{$this->injector->identifier()}]-->
@@ -49,7 +49,7 @@ class InjectAssets
     }
 
     /** Injects assets into given html string (taken from Livewire's injection mechanism) */
-    protected function injectAssets(string $html, string $assets): string
+    protected function inject(string $html, string $assets): string
     {
         $html = str($html);
 
