@@ -30,7 +30,7 @@ class InjectAssets
         }
 
         // Skip if core was included before
-        if (str_contains($html, '<!--[{$this->injector->identifier()} ASSETS]-->')) {
+        if (str_contains($html, '<!--[{$this->injector->identifier()}]-->')) {
             return;
         }
 
@@ -39,7 +39,7 @@ class InjectAssets
 
         $handled->response->setContent(
             $this->inject($html, <<< HTML
-            <!--[{$this->injector->identifier()} ASSETS]-->
+            <!--[{$this->injector->identifier()}]-->
             {$this->injector->inject()}
             <!--[END{$this->injector->identifier()}]-->
             HTML)

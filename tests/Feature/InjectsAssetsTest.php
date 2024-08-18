@@ -7,7 +7,7 @@ it('injects assets into head tag', function () {
 
     $this->get('test-inject-in-response')
         ->assertOk()
-        ->assertSee('<!--[TEST_PACKAGE ASSETS]-->', false);
+        ->assertSee('<!--[TEST_PACKAGE]-->', false);
 });
 
 it('injects assets into html body when no head tag is present', function () {
@@ -15,7 +15,7 @@ it('injects assets into html body when no head tag is present', function () {
 
     $this->get('test-inject-in-response')
         ->assertOk()
-        ->assertSee('<!--[TEST_PACKAGE ASSETS]-->', false);
+        ->assertSee('<!--[TEST_PACKAGE]-->', false);
 });
 
 it('doesnt inject assets into responses without a closing html tag', function () {
@@ -23,7 +23,7 @@ it('doesnt inject assets into responses without a closing html tag', function ()
 
     $this->get('test-inject-in-response')
         ->assertOk()
-        ->assertDontSee('<!--[TEST_PACKAGE ASSETS]-->', false);
+        ->assertDontSee('<!--[TEST_PACKAGE]-->', false);
 });
 
 it('doesnt inject assets when implementation returns false from enabled method', function () {
@@ -35,5 +35,5 @@ it('doesnt inject assets when implementation returns false from enabled method',
 
     $this->get('test-inject-in-response')
         ->assertOk()
-        ->assertDontSee('<!--[TEST_PACKAGE ASSETS]-->', false);
+        ->assertDontSee('<!--[TEST_PACKAGE]-->', false);
 });
