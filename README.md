@@ -72,6 +72,16 @@ class ServiceProvider extends BaseServiceProvider
 }
 ```
 
+3. Usage with Orchestra testbench
+
+If you need to test the integration within your own package you'll need to register AssetInjector's service provider by adding it to your `testbench.yaml`
+
+```yaml
+providers:
+  - YourPackage\ServiceProvider
+  - Leuverink\AssetInjector\ServiceProvider
+```
+
 ## How It Works
 
 - Assets are automatically included in full-page responses (not partial HTML responses).
