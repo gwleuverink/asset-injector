@@ -56,12 +56,12 @@ class InjectAssets
 
         if ($html->test('/<\s*\/\s*head\s*>/i')) {
             return $html
-                ->replaceMatches('/(<\s*\\s*head\s*>)/i', '$1' . $assets)
+                ->replaceMatches('/(<\s*\/\s*head\s*>)/i', $assets . '$1')
                 ->toString();
         }
 
         return $html
-            ->replaceMatches('/(<\s*html(?:\s[^>])*>)/i', '$1' . $assets)
+            ->replaceMatches('/(<\s*\/\s*html\s*>)/i', $assets . '$1')
             ->toString();
     }
 }
