@@ -52,6 +52,7 @@ class InjectAssets
     protected function inject(string $html, string $assets): string
     {
         $html = str($html);
+        $assets = PHP_EOL . $assets . PHP_EOL;
 
         if ($html->test('/<\s*\/\s*head\s*>/i')) {
             return $html
