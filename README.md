@@ -3,7 +3,7 @@
 [![codestyle](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml)
 [![tests](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml)
 
-Simplify your Laravel package development by automatically injecting js & css assets into web responses. No manual inclusion required for your package users! 🚀
+Simplify your Laravel package development by automatically injecting JS & CSS assets into web responses. No manual inclusion required for your package users! 🚀
 
 ## Installation
 
@@ -75,7 +75,7 @@ class ServiceProvider extends BaseServiceProvider
 
 3. Usage with Orchestra testbench
 
-If you need to test the integration within your own package you'll need to register AssetInjector's service provider by adding it to your `testbench.yaml`
+If you like to test the integration within your own package you'll need to register AssetInjector's service provider by adding it to your `testbench.yaml`
 
 ```yaml
 providers:
