@@ -2,7 +2,7 @@
 
 use Leuverink\AssetInjector\Contracts\AssetInjector;
 
-it('injects assets into head tag', function () {
+it('injects assets into response', function () {
     Route::get('test-inject-in-response', fn () => '<html><head></head></html>');
 
     $this->get('test-inject-in-response')
@@ -10,12 +10,36 @@ it('injects assets into head tag', function () {
         ->assertSee('<!--[TEST_PACKAGE]-->', false);
 });
 
-it('injects assets into html body when no head tag is present', function () {
-    Route::get('test-inject-in-response', fn () => '<html></html>');
+it('injects assets into head tag', function () {
+    Route::get('test-inject-in-response', fn () => '<html><head></head></html>');
+
+    $expected = <<< 'HTML'
+    <html><head>
+    <!--[TEST_PACKAGE]-->
+    TEST_PACKAGE_ASSETS_INJECTED
+    <!--[ENDTEST_PACKAGE]-->
+    </head></html>
+    HTML;
 
     $this->get('test-inject-in-response')
         ->assertOk()
-        ->assertSee('<!--[TEST_PACKAGE]-->', false);
+        ->assertSee($expected, false);
+});
+
+it('injects assets into html body when no head tag is present', function () {
+    Route::get('test-inject-in-response', fn () => '<html></html>');
+
+    $expected = <<< 'HTML'
+    <html>
+    <!--[TEST_PACKAGE]-->
+    TEST_PACKAGE_ASSETS_INJECTED
+    <!--[ENDTEST_PACKAGE]-->
+    </html>
+    HTML;
+
+    $this->get('test-inject-in-response')
+        ->assertOk()
+        ->assertSee($expected, false);
 });
 
 it('doesnt inject assets into responses without a closing html tag', function () {
