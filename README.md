@@ -59,6 +59,7 @@ namespace YourPackage;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Leuverink\AssetInjector\Contracts\AssetInjector;
+use YourPackage\InjectAssets;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -66,7 +67,7 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->app->bind(
             AssetInjector::class,
-            fn() => new \YourPackage\AssetInjector
+            InjectAssets::class
         );
     }
 }

@@ -16,7 +16,7 @@ abstract class TestCase extends BaseTestCase
 
         $this->app->bind(
             AssetInjector::class,
-            fn () => new Implement
+            Implement::class
         );
     }
 }
