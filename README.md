@@ -3,6 +3,9 @@
 [![codestyle](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml)
 [![tests](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml)
 
+> [!NOTE]  
+> Pending some thought before tagging v1 release. Check back soon
+
 Simplify your Laravel package development by automatically injecting JS & CSS assets into web responses. No manual inclusion required for your package users! 🚀
 
 ## Installation
