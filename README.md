@@ -3,10 +3,9 @@
 [![codestyle](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml)
 [![tests](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml)
 
-> [!NOTE]
-> This is a package for Laravel package developers
+Simplify your Laravel package development with automatic asset injection. 
 
-Simplify your Laravel package development with automatic asset injection. This package allows you to seamlessly insert JavaScript and CSS into web responses without requiring manual inclusion by your package users 🚀
+This package allows you to seamlessly insert JavaScript and CSS into web responses without requiring manual inclusion by your package users 🚀
 
 ## Installation
 
