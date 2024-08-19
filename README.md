@@ -6,7 +6,7 @@
 > [!NOTE]
 > This is a package for Laravel package developers
 
-Simplify your Laravel package development by automatically injecting JS & CSS assets into web responses. No manual inclusion required for your package users! 🚀
+Simplify your Laravel package development with automatic asset injection. This package allows you to seamlessly insert JavaScript and CSS into web responses without requiring manual inclusion by your package users 🚀
 
 ## Installation
 
