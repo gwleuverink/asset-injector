@@ -3,8 +3,8 @@
 [![codestyle](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml)
 [![tests](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml)
 
-> [!NOTE]  
-> Pending some thought before tagging v1 release. Check back soon
+> [!NOTE]
+> This is a package for Laravel package developers
 
 Simplify your Laravel package development by automatically injecting JS & CSS assets into web responses. No manual inclusion required for your package users! 🚀
 
@@ -28,14 +28,14 @@ use Leuverink\AssetInjector\Contracts\AssetInjector;
 
 class InjectAssets implements AssetInjector
 {
-    // Used to determine if assets were already injected in the response
+    // Used to identify your assets in the HTML response
     public function identifier(): string
     {
         return 'MY_PACKAGE';
     }
 
     // You can opt in to asset injection by implementing your own checks.
-    // For example if a package user can control this via config file.
+    // For example if a package user can control this via config file, or when your end user hits a middleware
     public function enabled(): bool
     {
         return true;
