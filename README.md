@@ -3,7 +3,7 @@
 [![codestyle](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/codestyle.yml)
 [![tests](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml/badge.svg)](https://github.com/gwleuverink/inject-package-assets/actions/workflows/tests.yml)
 
-Simplify your Laravel package development with automatic asset injection. 
+Simplify your Laravel package development with automatic asset injection.
 
 This package allows you to seamlessly insert JavaScript and CSS into web responses without requiring manual inclusion by your package users 🚀
 
@@ -54,35 +54,22 @@ class InjectAssets implements AssetInjector
 }
 ```
 
-2. Bind the implementation in your package's Service Provider.
+2. Register the implementation in your package's Service Provider.
 
 ```php
 namespace YourPackage;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Leuverink\AssetInjector\Contracts\AssetInjector;
+use Leuverink\AssetInjector\AssetManager;
 use YourPackage\InjectAssets;
 
 class ServiceProvider extends BaseServiceProvider
 {
-    public function register()
+    public function boot()
     {
-        $this->app->bind(
-            AssetInjector::class,
-            InjectAssets::class
-        );
+        AssetManager::register(new InjectAssets);
     }
 }
-```
-
-3. Usage with Orchestra testbench
-
-If you like to test the integration within your own package you'll need to register AssetInjector's service provider by adding it to your `testbench.yaml`
-
-```yaml
-providers:
-  - YourPackage\ServiceProvider
-  - Leuverink\AssetInjector\ServiceProvider
 ```
 
 ## How It Works
