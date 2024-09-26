@@ -1,2 +1,2 @@
 providers:
-  - Leuverink\AssetInjector\ServiceProvider
+  # - Leuverink\AssetInjector\ServiceProvider

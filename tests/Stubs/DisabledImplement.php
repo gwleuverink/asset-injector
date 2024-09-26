@@ -1,23 +1,23 @@
 <?php
 
-namespace Tests;
+namespace Tests\Stubs;
 
 use Leuverink\AssetInjector\Contracts\AssetInjector;
 
-class Implement implements AssetInjector
+class DisabledImplement implements AssetInjector
 {
     public function identifier(): string
     {
-        return 'TEST_PACKAGE';
+        return 'DISABLED_TEST_PACKAGE';
     }
 
     public function enabled(): bool
     {
-        return true;
+        return false;
     }
 
     public function inject(): string
     {
-        return 'TEST_PACKAGE_ASSETS_INJECTED';
+        return 'DISABLED_TEST_PACKAGE_ASSETS_INJECTED';
     }
 }
