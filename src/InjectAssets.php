@@ -45,7 +45,14 @@ class InjectAssets
             HTML)
         );
 
-        $handled->response->original = $originalContent;
+        // Laravel dispatches the ResponseHandled event even for response
+        // objects that don't include the `original` property.
+        // The typehint in Laravel core is wrong, so we ignore
+        /* @phpstan-ignore function.alreadyNarrowedType */
+        if (property_exists($handled->response, 'original')) {
+            $handled->response->original = $originalContent;
+        }
+
     }
 
     /** Injects assets into given html string (taken from Livewire's injection mechanism) */
