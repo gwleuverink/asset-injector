@@ -48,7 +48,6 @@ class InjectAssets
         // Laravel dispatches the ResponseHandled event even for response
         // objects that don't include the `original` property.
         // The typehint in Laravel core is wrong, so we ignore
-        /* @phpstan-ignore function.alreadyNarrowedType */
         if (property_exists($handled->response, 'original')) {
             $handled->response->original = $originalContent;
         }
