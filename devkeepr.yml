@@ -1,0 +1,4 @@
+$schema: 'https://devkeepr.app/schema.json'
+
+autoWake: true
+hibernateSchedule: weekly
